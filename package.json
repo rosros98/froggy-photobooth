@@ -2,6 +2,8 @@
   "name": "cute-photobooth",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
+  "main": "electron.js",
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
@@ -16,8 +18,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "electron": "electron .",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+   
   },
   "eslintConfig": {
     "extends": [
@@ -36,5 +40,36 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "build": {
+    "appId": "com.rosaria.cutephotobooth",
+    "productName": "Cute Photobooth",
+    "files": [
+      "build/**/*",
+      "electron.js",
+      "package.json"
+    ],
+    "extraMetadata": {
+      "main": "electron.js"
+    },
+    "directories": {
+      "buildResources": "assets"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "icon.icns"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "electron": "^40.6.0",
+    "electron-builder": "^26.8.1",
+    "wait-on": "^9.0.4"
   }
 }
